@@ -34,6 +34,10 @@ Cluster using the commmands in (https://github.com/XiaohangZhan/cdp).
 ```
 python -u main.py --config experiments/omni/config.yaml
 ```
+Download this github python files *.py into the folder
+```
+cdp/data/unlabeled/omni/
+```
 Create a list.txt file from the meta.txt file using our codes
 ```
 python create_list.py
@@ -51,6 +55,11 @@ feats1 = load_feats('C:/Users/isetsk/Downloads/cdp-master/cdp-master/data/{}/fea
 And set the knn file to 
 ```
 knn1=np.load('./knn/part0_k15.npz')
+```
+Put the ground truth labels meta.txt and cdp clustering labels meta.txt in the correct folder and set e.g.
+```
+label_true=meta=np.loadtxt('meta.txt')
+label_predict=np.loadtxt('..../cdp/experiments/omni/output/k15_vote_accept0_th0.7/sz600_step0.05/meta.txt')
 ```
 Then label Propagation of Remaining Unlabeled Face embeddings using
 ```
