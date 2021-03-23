@@ -16,7 +16,7 @@ This face clustering makes use of existing work([CDP codes]https://github.com/Xi
 
 Install dependencies
 ```
-pip install -r requirements.txt
+pip install -U scikit-learn
 ```
 Please download and use this dataset [DATASET.md](https://github.com/yl-1993/learn-to-cluster/blob/master/DATASET.md) to evaluate the clustering algorithm. 
 You may also use the face embeddings dataset from (https://github.com/Zhongdao/gcn_clustering).
