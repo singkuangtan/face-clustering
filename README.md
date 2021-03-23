@@ -25,10 +25,36 @@ You may also use the face embeddings dataset from (https://github.com/Zhongdao/g
 ```
 git clone git@github.com:XiaohangZhan/cdp.git
 ```
+Put your face embeddings file e.g. part0.bin in the folder.
+```
+cdp/data/unlabeled/omni/features/part0.bin
+```
+Create the config.yaml file.
 Cluster using the commmands in (https://github.com/XiaohangZhan/cdp).
+```
+python -u main.py --config experiments/omni/config.yaml
+```
+Create a list.txt file from the meta.txt file using our codes
+```
+python create_list.py
+```
 Then further split the clusters using our codes
 ```
-python ....py
+python cluster_finetuning_and_perf_other_algo.py
+```
+Remember to set the data_name and features to the values below 
+```
+#load features
+data_name='unlabeled/omni'
+feats1 = load_feats('C:/Users/isetsk/Downloads/cdp-master/cdp-master/data/{}/features/{}.bin'.format(data_name, 'part0'),256)
+```
+And set the knn file to 
+```
+knn1=np.load('./knn/part0_k15.npz')
+```
+Then label Propagation of Remaining Unlabeled Face embeddings using
+```
+python label_pred_smooth_by_neighbors.py
 ```
 
 ## Results
